@@ -1,0 +1,37 @@
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+
+# Model weights and local caches
+video/longlive_models/models/
+video/wan_models/
+video/wan_models
+video/longlive_models/.cache/
+dllm/models/TraDo-8B-Thinking/
+
+# Generated outputs
+assets/paper/*.pdf
+video/outputs/
+video/videos/
+video/logs/
+dllm/logs/
+dllm/trado_eval/
+dllm/ckpt_llada_instruct/
+dllm/checkpoints/
+dllm/wandb/
+dllm/data/*.pt
+dllm/data/LiveBench.json
+flash-attention/build/
+flash-attention/*.egg-info/
+flash-attention/.eggs/
+flash-attention/*.so*
+flash-attention/dist/
+flash-attention/training/
+flash-attention/csrc/cutlass/docs/
+flash-attention/csrc/cutlass/media/
+flash-attention/csrc/composable_kernel/docs/
+
+# Local editor/runtime files
+.vscode/
+*.log

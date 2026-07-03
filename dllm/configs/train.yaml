@@ -1,0 +1,69 @@
+# Training mode configuration
+training_mode: 'trado'
+
+# Model and data path configuration
+paths:
+  model: 'models/TraDo-8B-Thinking'
+  experiment: 'ckpt_llada_instruct'
+  rollout_data: 'data/train_trajectories.pt'
+  data:
+    bs: 'BytedTsinghua-SIA/DAPO-Math-17k'
+    bs_easy: 'Lansechen/bs17k_collection_filtered_easy_maxlength600'
+
+denoiser:
+  encoder:
+    name: 'dream'
+    mask_id: 151669
+
+  decoder:
+    wiinit: true
+    name: 'eagle_rope'
+    num_blocks: 1
+    seq_len: &seq_len 4096
+    input_dim: 3584
+    hidden_dim: &dim 3584
+    vocab_size: 152064
+    block:
+      seq_len: *seq_len
+      hidden_dim: *dim
+      num_heads: 32
+
+train:
+  decoder_resume_path:
+  head_resume_path:
+  skipped_keys:
+  global_step: 0
+  exp_name: &exp_name 'flashblock_trado_block4_lr5e-5_ctx4096_eps1e-8_w05d05'
+  wandb_proj: *exp_name
+  output_dir: 'ddt_test'
+  logging_dir: 'logs'
+  mixed_precision: 'bf16'
+  gradient_accumulation_steps: 5
+  report_to: 'no'
+  block_size: 4
+
+  lr: 5e-5
+  adam_eps: 1e-8
+  sparse_loss_weight: 0.5
+  dense_loss_weight: 0.5
+  num_iters: 50000
+  eval_every: 100
+  save_every: 100
+
+  enable_shift: true
+  share_steps: 2
+  self_align: true
+  feature_align: false
+  self_step: true
+
+  multi_block_probe: true
+  multi_block_probe_num: 64
+  multi_block_min_prefix_blocks: 1
+
+data:
+  name: 'bs17k'
+  batch_size: 4
+  val_batch_size: 4
+  max_length: *seq_len
+  max_q_length: *seq_len
+  split_val: true

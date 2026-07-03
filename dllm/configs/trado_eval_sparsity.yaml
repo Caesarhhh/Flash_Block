@@ -1,0 +1,40 @@
+experiment:
+    project: "trado_eval" # need to be same of this file name
+    num_node: 1 # the number of machines you have
+    node_index: 0 # no need to change
+
+model: "models/TraDo-8B-Thinking"
+# You can override this with MODEL=/path/to/local/TraDo-8B-Thinking when running scripts/eval.sh.
+lora_model: "null"
+model_base: "trado" 
+seed: 10086
+
+# dataset you want to eval on, you need to download first, you can also modify your own dataset, see instructions in ./data
+dataset:
+    # Supported eval datasets: AIME2024, MATH500, GSM8K, LiveCodeBench, LiveBench.
+    # Use data_type="code" for LiveCodeBench and data_type="math" for the others.
+    eval_dataset: "AIME2024"
+    data_type: "math"
+    limit: -1
+    start: 0
+    
+outputname: "sparsity2"
+execute:
+    num_chunk: 128
+
+rollout:
+    tensor_parallel_size: 2 # set to 1 by default, if oom, try reduce max_active first, if still oom, set tensor_parallel_size to 8
+    max_active: 32
+    num_response_per_task: 1
+    temperature: 1.0
+    max_token: 32768 # max generation token num
+    block_size: 4
+    denoising_steps_per_block: 8
+    top_p: 1.0
+    top_k: 0
+    remasking_strategy: "low_confidence_dynamic" #"low_confidence_static""low_confidence_dynamic"
+    dynamic_threshold: 0.9
+    start_with_think: False # if not reasoning model, set to False, otherwise True
+    output_unmasking_history: True
+    sparsity_ratio: 3
+    gpu_memory_utilization: 0.95

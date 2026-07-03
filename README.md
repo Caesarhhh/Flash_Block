@@ -39,11 +39,11 @@ changes smoothly.
 
 | Prompt | Baseline | FlashBlock |
 | --- | --- | --- |
-| A person is eating a chocolate truffle. | <video src="assets/video_samples/chocolate_truffle_baseline.mp4" controls muted loop width="260"></video> | <video src="assets/video_samples/chocolate_truffle_flashblock.mp4" controls muted loop width="260"></video> |
-| A flower changes from purple to orange. | <video src="assets/video_samples/flower_color_change_baseline.mp4" controls muted loop width="260"></video> | <video src="assets/video_samples/flower_color_change_flashblock.mp4" controls muted loop width="260"></video> |
-| A clear glass of coffee is gently poured into a glass of milk. | <video src="assets/video_samples/coffee_milk_baseline.mp4" controls muted loop width="260"></video> | <video src="assets/video_samples/coffee_milk_flashblock.mp4" controls muted loop width="260"></video> |
+| A person is eating a chocolate truffle. | <a href="assets/video_samples/chocolate_truffle_baseline.mp4"><img src="assets/video_previews/chocolate_truffle_baseline.gif" width="260"></a> | <a href="assets/video_samples/chocolate_truffle_flashblock.mp4"><img src="assets/video_previews/chocolate_truffle_flashblock.gif" width="260"></a> |
+| A flower changes from purple to orange. | <a href="assets/video_samples/flower_color_change_baseline.mp4"><img src="assets/video_previews/flower_color_change_baseline.gif" width="260"></a> | <a href="assets/video_samples/flower_color_change_flashblock.mp4"><img src="assets/video_previews/flower_color_change_flashblock.gif" width="260"></a> |
+| A clear glass of coffee is gently poured into a glass of milk. | <a href="assets/video_samples/coffee_milk_baseline.mp4"><img src="assets/video_previews/coffee_milk_baseline.gif" width="260"></a> | <a href="assets/video_samples/coffee_milk_flashblock.mp4"><img src="assets/video_previews/coffee_milk_flashblock.gif" width="260"></a> |
 
-If your Markdown viewer does not render HTML video tags, open the files directly under
+Click a preview to open the full MP4. The files are also available directly under
 `assets/video_samples/`:
 
 - Chocolate truffle: [baseline](assets/video_samples/chocolate_truffle_baseline.mp4) · [FlashBlock](assets/video_samples/chocolate_truffle_flashblock.mp4)
